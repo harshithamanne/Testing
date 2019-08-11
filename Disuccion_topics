@@ -1,0 +1,29 @@
+Discussion Topics
+* The automated API and UI tests only cover the "happy path". Please describe in detail what other types of automated
+ tests you would set up to verify that the file upload feature is working as expected.
+  Scenarios when :
+	Uploading file is not successful, how do we display it to the end user.
+	When the network is down.
+	Session expired when trying to do file upload
+	Uploading an unsupported file
+	Extremely large file is uploaded, this could cause a Denial of Service (DDos) attack and bring down the site.
+	uploaded file contains an exploit, malware, malicious script or macro.
+
+* In the top nav, the Transfers menu item contains a toggle button for Basic and Enhanced. 
+
+1. What is the difference between these two options?
+     Basic option performs a API call with the file content in binary format. Whereas Enhanced option is first uploads
+     files to S3 and then performs API call.
+2. How do these different methods compare to uploading a file through the API?
+     Basic option is same as file upload through API using /files/contents/ endpoint.
+     Whereas Enhanced option authenticates, uploads file to s3 , then informs api by sending data in
+     request payload to /files/ endpoint and setting file access using file-access endpoint.
+3. What security or additional testing concerns do you have with these two approaches?
+   Basic option testing can be done with the scenarios stated above.
+   Enhanced option testing would include additional scenarios, such as :
+    1. S3 file upload failure
+    2. Stress test and verify successful uploads to S3 have been recorded correctly in the API in
+    both endpoints (files/ and file-access/)
+    3. credentials/ files/ and file-access/ endpoints should also be tested with different request parameters
+
+

@@ -1,0 +1,6 @@
+behave==1.2.6
+behave2cucumber==1.0.3
+page-objects==1.1.0
+sauceclient==1.0.0
+selenium==3.141.0
+django-nose==1.4.6
