@@ -22,8 +22,6 @@ class RescaleApi:
         headers = {'Authorization': 'Token {}'.format(self.api_secret)}
         if http_method == 'GET':
             response = requests.get(request_url, headers=headers)
-            print(request_url)
         elif http_method == 'POST':
             response = requests.post(request_url, headers=headers, files=data)
-            print(request_url)
         return json.loads(response._content)
