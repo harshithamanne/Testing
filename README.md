@@ -16,5 +16,5 @@ Parameters: please set email and password
 
 # Instructions to run API test  
 Please pass api key as argument parameter
-from root 
+from root :
 python3 api_test/test.py --api_key=<token>
